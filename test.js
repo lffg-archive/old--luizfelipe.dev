@@ -1,16 +1,17 @@
-/***
- * Aplicação: Criar tags BBCode
+/*
+ * Criar tags BBCode
  * Descrição: Esta aplicação serve para a criação de novas tags bbcode.
- * Versão: 2.0
- * Feito por Daemon e atualizado em: 26/09/2016
+ * Versão: 2.1
+ * Autor: Daemon
+ * Att: 01/03/2017
  * Veja mais em: http://ajuda.forumeiros.com
- ***/
+ */
 jQuery(document).ready(function($) {
  
     var bbCodes = {
  
-        // Nota: Adicione uma vírgula ao final de cada nova entrada;
-        // O "{ATTR}" é correspondente ao 'título' da tag, e o "{CONTENT}" é correspondente ao texto entre as tags
+        // Nota: Adicione uma vírgula ao final de cada nova entrada
+        // O '{ATTR}' é correspondente ao 'título' da tag, e o '{CONTENT}' é correspondente ao 'texto' entre as tags
  
         sucesso: {
             close: true,
@@ -47,27 +48,32 @@ jQuery(document).ready(function($) {
  
     };
  
-    var getPost = $(".postbody , .blog_message"); //pega as postagens
+    // Não altere nada daqui para baixo
+ 
+    var getPost = $(".postbody, .blog_message");
+    var entry;
     for (var i = 0, e;
         (e = getPost[i++]);) {
-        var entry = $(e);
+        entry = $(e);
+        var re, match;
         $.each(bbCodes, function(tag, value) {
  
-            var re = value.close ? new RegExp("\\[" + tag + "(?:=(\"|'?)([^\\]]+)\\1)?\\]([\\s\\S]*?)\\[/" + tag + "]", "gi") : new RegExp("\\[" + tag + "(?:=(\"|'?)([^\\]]+)\\1)?\\]", "gi");
-            var match = entry.html().match(re);
+            re = value.close ? new RegExp("\\[" + tag + "(?:=("|'?)([^\\]]+)\\1)?\\]([\\s\\S]*?)\\[/" + tag + "]", "gi") : new RegExp("\\[" + tag + "(?:=("|'?)([^\\]]+)\\1)?\\]", "gi");
+            match = entry.html().match(re);
  
             if (match) {
+                var content, b, c, as_string, as_func, replacement;
                 for (var tag in match) {
-                    var content = match[tag];
-                    var b = "$3";
+                    content = match[tag];
+                    b = "$3";
                     if (value.replace) {
-                        var as_string = value.replace.toString();
-                        var as_func = eval('(' + as_string + ')');
+                        as_string = value.replace.toString();
+                        as_func = eval('(' + as_string + ')');
                         if (as_func(content)) b = as_func(content);
                     }
-                    var replacement = value.replacement
+                    replacement = value.replacement
                         .replace(/{ATTR}/g, "$2").replace(/{CONTENT}/g, b);
-                    var c = content.replace(re, replacement);
+                    c = content.replace(re, replacement);
                     entry.html(entry.html().replace(content, c));
                 }
             }
