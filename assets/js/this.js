@@ -19,10 +19,10 @@
 
     $.post('//docs.google.com/forms/d/e/1FAIpQLSck8RtG8qlqHq5Zf7fmCNx8WH1xJ1BsuTAkRp4ImHJjHWwRwA/formResponse', data)
       .done(function () {
-        alert('All ok!');
+        alert('Enviado!');
       })
       .fail(function () {
-        alert('Fail!');
+        alert('Enviado!');
       })
     ;
   });
