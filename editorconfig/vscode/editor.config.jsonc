@@ -1,0 +1,71 @@
+{
+    // Editor config (most about fonts, etc):
+    "editor.wordWrap": "on",
+    "editor.fontSize": 17.5,
+    "editor.lineHeight": 35,
+    "editor.letterSpacing": 0.5,
+    "editor.fontLigatures": true,
+    "editor.roundedSelection": false,
+    "editor.fontFamily": "Fira Mono, Consolas, Monaco, Source Code Pro, 'Courier New', monospace",
+  
+    // Editor TAB & indent config:
+    "editor.tabSize": 2,
+    "editor.tabCompletion": true,
+    "editor.detectIndentation": false,
+    
+    // Editor extra config:
+    "editor.mouseWheelZoom": true,
+  
+    // Tree-view (explorer) config:
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+  
+    // GIT config:
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreLegacyWarning": true,
+  
+    // Workbench config:
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "One Dark Pro",
+  
+    // Extra:
+    "files.associations": {
+      "*.htm": "html",
+      "*.html": "html",
+      "*.njk": "nunjucks",
+      "*.js": "javascript"
+    },
+    "files.insertFinalNewline": true,
+    
+    // Emmet config:
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showAbbreviationSuggestions": false,
+    "emmet.includeLanguages": {
+      "javascriptreact": "javascriptreact",
+      "edge": "html",
+      "nunjucks": "html",
+      "htmledge": "html"
+    },
+  
+    // Eslint general:
+    "eslint.options": {
+      "jsx": true
+    },
+
+    // Editor styles:
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "fontStyle": ""
+          }
+        }
+      ]
+    }
+  }
