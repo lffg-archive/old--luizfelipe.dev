@@ -5,6 +5,7 @@ button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=
 
 /**
  * Custom CSS.
+ * v1.1.0
  */
 
 *,
@@ -62,19 +63,29 @@ a.ignore:hover {
 }
 
 body > .card > .card-inner {
-  display: inline-block;
   padding: 2rem;
-}
-
-.social-icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body > .card > .card-inner.social-icons {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .social-icons a {
@@ -120,6 +131,19 @@ body > .card > .card-inner {
   body > .card > .card-inner {
     display: block;
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 1086px) {
+  body > .card {
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  body > .card {
+    max-width: 1085px;
   }
 }
 
