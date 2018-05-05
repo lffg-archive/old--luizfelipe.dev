@@ -1,71 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="theme-color" content="#388de0" />
-  <meta name="description" content="Luiz Felipe, desenvolvedor web full-stack. Criação de sites e sistemas usando HTML, CSS, PHP ou Node.JS e outras tecnologias web.">
+  <meta name="description" content="Luiz Felipe, desenvolvedor web full-stack. Criação de sites e sistemas usando HTML, CSS, PHP ou Node.JS e outras tecnologias web." />
 
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+
+  <!-- CSS and other files -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700|Rock+Salt" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="stylesheet" href="/assets/css/index.css?v=2.0.0" />
   <link rel="manifest" href="/manifest.json" />
     
   <title>Luiz Felipe</title>
 </head>
 <body>
-  <div class="card">
-    <div class="card-inner">
-      <div class="alert" style="display: none;">
-        Mensagem enviada com sucesso.
-      </div>
-      <h1>Olá, eu sou o Luiz</h1>
-      <p>
-        Meu nome é Luiz Felipe. Sou um desenvolvedor web front-end e back-end.
-        <a href="javascript:alert('Página em breve...');">Meu Trabalho »</a>
-      </p>
-      <p>Caso deseje falar comigo, use o formulário a seguir.</p>
-    
-      <form id="contact-form">
-        <h4>Entre em contato comigo</h4>
-        <div class="form-group">
-          <label for="name">Seu nome:</label>
-          <input type="text" id="name" name="entry.33695881" placeholder="John Doe" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Seu e-mail:</label>
-          <input type="email" id="email" name="entry.607242365" placeholder="john@doe.com" required />
-        </div>
-        <div class="form-group">
-          <label for="wpp">Seu WhatsApp: <em><small>(Opcional)</small></em></label>
-          <input type="text" id="wpp" name="entry.653629715" placeholder="+55 (12) 34567-8910" />
-        </div>
-        <div class="form-group">
-          <label for="message">Mensagem:</label>
-          <textarea id="message" name="entry.2010467437" placeholder="Oi, eu sou o John..." required></textarea>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="submit-btn">
-        </div>
-    
-        <input type="hidden" name="entry.1555886790" value="Não especificado." />
-        <input type="hidden" id="date" name="entry.1014562597" value="Não especificado." />
-      </form>
-    </div>
-    <div class="card-inner social-icons">
-      <a href="https://github.com/lffg" title="GitHub" class="ignore">
-        <img src="/assets/img/github-logo.svg" alt="GitHub" />
-      </a>
-      <a href="https://twitter.com/luizfelipe_fg" title="Twitter" class="ignore">
-        <img src="/assets/img/twitter.svg" alt="Twitter" />
-      </a>
+  <div class="wrapper">
+    <div class="row">
+      <section class="col contact-col">
+        <header class="intro">
+          <div class="alert" style="display: none;">
+            Mensagem enviada com sucesso.
+          </div>
+
+          <h1>Olá, eu sou o Luiz</h1>
+          <p>
+            Meu nome é Luiz Felipe. Sou um desenvolvedor web front-end e back-end.
+            <br />
+            <a href="javascript:alert('Em breve...');">Meu Trabalho »</a>
+          </p>
+          <p>
+            Caso deseje falar comigo, use o formulário a seguir. Irei responder assim que possível.
+          </p>
+          <noscript>
+            <p>
+              <strong>NOTA: Você precisa ativar o JavaScript para submeter o formulário.</strong>
+            </p>
+          </noscript>
+        </header>
+        <form id="contact-form">
+          <h4>Entre em contato comigo</h4>
+
+          <div class="form-group">
+            <label for="name">Seu nome:</label>
+            <input type="text" id="name" name="entry.33695881" placeholder="John Doe" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Seu e-mail:</label>
+            <input type="email" id="email" name="entry.607242365" placeholder="john@doe.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="wpp">Seu WhatsApp: <em><small>(Opcional)</small></em></label>
+            <input type="text" id="wpp" name="entry.653629715" placeholder="+55 (12) 34567-8910" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="entry.2010467437" placeholder="Oi, eu sou o John..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="submit-btn">
+          </div>
+      
+          <input type="hidden" name="entry.1555886790" value="Não especificado." />
+          <input type="hidden" id="date" name="entry.1014562597" value="Não especificado." />
+        </form>
+      </section>
+      <section class="col social-col">
+        <a href="https://github.com/lffg" title="GitHub" class="ignore">
+          <img src="/assets/img/github.svg" alt="GitHub" />
+        </a>
+        <a href="https://twitter.com/luizfelipe_fg" title="Twitter" class="ignore">
+          <img src="/assets/img/twitter.svg" alt="Twitter" />
+        </a>
+      </section>
     </div>
   </div>
 
   <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/index.js"></script>
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113481284-1"></script>
