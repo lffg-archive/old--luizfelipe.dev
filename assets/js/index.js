@@ -1,6 +1,9 @@
+/** @author Luiz Felipe F. <https://lffg.github.io> */
+
 (function($) {
   'use strict';
 
+  // Date:
   var date  = new Date();
   var day   = date.getDate();
   var month = date.getMonth() + 1;
@@ -8,13 +11,13 @@
 
   $('#date').attr('value', [day, month, year].join('/'));
 
+  // Handle form submit:
   $('#contact-form').on('submit', function(event) {
     event.preventDefault();
     var $alert = $('body').find('.alert');
 
     var $this = $(this);
     var data  = $this.serialize();
-    console.log(data);
 
     var showAlert = function() {
       $alert.slideDown();

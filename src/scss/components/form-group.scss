@@ -1,0 +1,52 @@
+.form-group {
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  input,
+  textarea,
+  button {
+    display: block;
+    width: 100%;
+    margin: .25rem 0;
+    padding: .7rem .95rem;
+    background-color: $light;
+    border: none;
+    border-radius: .2rem;
+    color: $secondary;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    transition: all linear 200ms;
+  }
+
+  textarea {
+    resize: vertical;
+    height: 125px;
+  }
+
+  button,
+  input[type=button],
+  input[type=submit] {
+    background-color: $primary;
+    color: $light;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light;
+      color: $primary
+    }
+  }
+
+  input:focus,
+  textarea:focus,
+  button:focus {
+    box-shadow: 0 0 0 3px $primary;
+  }
+
+  label {
+    display: block;
+    margin-bottom: .5rem;
+    color: $light;
+  }
+}

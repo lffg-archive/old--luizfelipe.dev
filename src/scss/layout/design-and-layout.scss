@@ -1,0 +1,73 @@
+html,
+body,
+.wrapper {
+  min-height: 100vh;
+}
+
+body {
+  background-color: $secondary;
+  background-image: url('/assets/img/background.svg'), linear-gradient(140deg, $secondary, $primary);
+  font-family: 'Nunito', 'Segoe UI', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Arial', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1086px) {
+    max-width: 1050px;
+  }
+  
+  @media screen and (min-width: 1140px) {
+    max-width: 1085px;
+  }
+}
+
+.row {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 915px) {
+    border-top: solid 20px $primary;
+    flex-wrap: wrap;
+  }
+}
+
+.col {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &.social-col {
+    justify-content: space-around;
+
+    @media screen and (min-width: 460px) and (max-width: 915px) {
+      flex-direction: row;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      padding-right: 0;
+      text-align: center;
+
+      @media screen and (max-width: 915px) {
+        padding-right: 2rem;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        transition: all 200ms linear;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
