@@ -5,7 +5,7 @@ button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=
 
 /**
  * Custom CSS.
- * v1.1.0
+ * v1.1.1
  */
 
 *,
@@ -86,6 +86,7 @@ body > .card > .card-inner.social-icons {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
