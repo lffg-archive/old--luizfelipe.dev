@@ -1,0 +1,23 @@
+{
+  "name": "@lffg/luizfelipe.dev",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.3.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sass": "^1.26.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.3",
+    "@types/react": "^16.9.25",
+    "eslint": "^6.8.0",
+    "eslint-config-lffg": "^17.1.0-pre-0"
+  }
+}
