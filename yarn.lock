@@ -2735,10 +2735,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-lffg@^17.1.0-pre-0:
-  version "17.1.0-pre-0"
-  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-17.1.0-pre-0.tgz#2fcc1ba81bc07dc349aeae05393c389e12efebe7"
-  integrity sha512-RX5uDZuD4zFTBZJ2A5Ioe5CqzPlBr6wNYVIbihk4ydVV18qQJpILf20ycqOiJ7ZAT7ah6JcPTae6TTkZnTHcQw==
+eslint-config-lffg@^18.0.0:
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-18.0.0.tgz#4a1e8d62edd3e3ec9c43d54c9e0be7d5e2fa33e1"
+  integrity sha512-4AgKzis6MxAn45S6JZKO1RU0UDTzX6eniDEgiN0PORVlKVtrsaf/LMTApdULGxmYh/F0eR6qNt7B3y4tT13hhQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.x"
     "@typescript-eslint/parser" "2.x"
@@ -2754,8 +2754,8 @@ eslint-config-lffg@^17.1.0-pre-0:
     eslint-plugin-prettier "3.x"
     eslint-plugin-react "^7.17.0"
     eslint-plugin-react-hooks "^2.5.0"
-    prettier "1.x"
-    typescript "3.5.3"
+    prettier "2.x"
+    typescript "3.8.3"
 
 eslint-config-prettier@6.x:
   version "6.10.1"
@@ -5474,10 +5474,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@1.x:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
-  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+prettier@2.x, prettier@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.2.tgz#1ba8f3eb92231e769b7fcd7cb73ae1b6b74ade08"
+  integrity sha512-5xJQIPT8BraI7ZnaDwSbu5zLrB6vvi8hVV58yHQ+QK64qrY40dULy0HSRlQ2/2IdzeBpjhDkqdcFBnFeDEMVdg==
 
 private@^0.1.8:
   version "0.1.8"
@@ -6677,12 +6677,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
-  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
-
-typescript@^3.8.3:
+typescript@3.8.3, typescript@^3.8.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
