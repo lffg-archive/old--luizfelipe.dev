@@ -8,10 +8,10 @@
     "build": "next build",
     "start": "next start",
     "format:raw": "prettier --write",
-    "format": "yarn format:raw '**/*.{js,jsx,ts,tsx,json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}'",
+    "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --fix .",
-    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0"
+    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'"
   },
   "dependencies": {
     "next": "9.3.1",
@@ -25,7 +25,22 @@
     "@types/react-dom": "^16.9.5",
     "eslint": "^6.8.0",
     "eslint-config-lffg": "^18.0.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
     "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}": [
+      "yarn format:raw"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:raw --fix"
+    ]
   }
 }
