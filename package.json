@@ -17,11 +17,12 @@
   "dependencies": {
     "gatsby": "^2.20.16",
     "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-sass": "^2.2.1",
     "gatsby-plugin-typescript": "^2.3.1",
+    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "styled-components": "^5.1.0",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
@@ -36,7 +37,8 @@
     "eslint-config-lffg": "^18.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.3",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "typescript-plugin-css-modules": "^2.2.0"
   },
   "husky": {
     "hooks": {

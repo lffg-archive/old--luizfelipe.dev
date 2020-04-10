@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
-import * as S from './layout-styles';
+import styles from './layout.module.scss';
 
 import './css/normalize.css';
 import './css/global.css';
@@ -25,12 +25,14 @@ export function Layout({ children }: Props) {
   const { title, author } = data.site.siteMetadata;
 
   return (
-    <S.App>
-      <S.Header>
+    <div className={styles.app}>
+      <header className={styles.header}>
         <strong>{title}</strong>
-      </S.Header>
-      <S.Container>{children}</S.Container>
-      <S.Footer>&copy; {author} &middot; Built with Gatsby</S.Footer>
-    </S.App>
+      </header>
+      <div className={styles.container}>{children}</div>
+      <footer className={styles.footer}>
+        &copy; {author} &middot; Built with Gatsby
+      </footer>
+    </div>
   );
 }

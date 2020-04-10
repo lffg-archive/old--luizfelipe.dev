@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const App = styled.div`
+.app {
   max-width: 850px;
   background-color: #fff;
   color: #212121;
@@ -13,19 +11,20 @@ export const App = styled.div`
     border: solid 1px #000;
     margin: 1rem;
   }
-`;
+}
 
-export const Header = styled.header`
+.header {
   padding: 2rem 2rem 0 2rem;
-`;
+  color: red;
+}
 
-export const Container = styled.main`
+.container {
   padding: 0 2rem 2rem 2rem;
-`;
+}
 
-export const Footer = styled.footer`
+.footer {
   margin-top: 1.5rem;
   padding: 2rem;
   background-color: #212121;
   color: #fff;
-`;
+}

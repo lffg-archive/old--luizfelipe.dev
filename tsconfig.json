@@ -11,7 +11,15 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "allowJs": false,
-    "strict": true
+    "strict": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashesOnly"
+        }
+      }
+    ]
   },
   "exclude": ["node_modules", "scripts", ".cache", "public", "build", "dist"]
 }
