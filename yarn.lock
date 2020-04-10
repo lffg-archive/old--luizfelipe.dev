@@ -2820,10 +2820,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-lffg@^18.0.0:
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-18.0.0.tgz#4a1e8d62edd3e3ec9c43d54c9e0be7d5e2fa33e1"
-  integrity sha512-4AgKzis6MxAn45S6JZKO1RU0UDTzX6eniDEgiN0PORVlKVtrsaf/LMTApdULGxmYh/F0eR6qNt7B3y4tT13hhQ==
+eslint-config-lffg@^18.0.1:
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-18.0.1.tgz#dae68067bb2095a08f258b61bef035518bccdd94"
+  integrity sha512-/GjuP659yt4mahdOENSEzT6sTvnBAr77IM4C68pZeXwctghhevIt/XkHyy7u4BTVxO1q4h/XiacW7AuW8/51xw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.x"
     "@typescript-eslint/parser" "2.x"
