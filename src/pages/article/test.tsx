@@ -1,3 +1,4 @@
+import { readdirSync } from 'fs';
 import React from 'react';
 
 export default function Test(props: any) {
@@ -13,8 +14,14 @@ export function getStaticProps() {
   return {
     props: {
       data: 3,
-      cwd: process.cwd(),
-      dir: __dirname
+      cwd: {
+        path: process.cwd(),
+        ls: readdirSync(process.cwd())
+      },
+      dirname: {
+        path: __dirname,
+        ls: readdirSync(__dirname)
+      }
     }
   };
 }
