@@ -22,27 +22,31 @@ interface Props {
   lang?: string;
   meta?: any[];
   title: string;
+  removeTitleTemplate?: true;
 }
 
 export function Seo(props: Props) {
   const { siteMetadata } = useStaticQuery(QUERY).site;
 
-  const metaDescription = props.description || siteMetadata.description;
+  const title = props.removeTitleTemplate
+    ? props.title
+    : `${props.title} · ${siteMetadata.title}`;
+
+  const description = props.description || siteMetadata.description;
 
   return (
     <Helmet
       htmlAttributes={{ lang: props.lang || siteMetadata.defaultLang }}
-      title={props.title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
+      title={title}
       meta={[
-        { name: `description`, content: metaDescription },
-        { property: `og:title`, content: siteMetadata.title },
-        { property: `og:description`, content: metaDescription },
+        { name: `description`, content: description },
+        { property: `og:title`, content: title },
+        { property: `og:description`, content: description },
         { property: `og:type`, content: `website` },
         { name: `twitter:card`, content: `summary` },
         { name: `twitter:creator`, content: '@' + siteMetadata.social.twitter },
-        { name: `twitter:title`, content: siteMetadata.title },
-        { name: `twitter:description`, content: metaDescription },
+        { name: `twitter:title`, content: title },
+        { name: `twitter:description`, content: description },
         ...(props.meta || [])
       ]}
     />
