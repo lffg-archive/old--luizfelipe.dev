@@ -6,7 +6,7 @@ import { Seo } from '../components/seo';
 export default function Index() {
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Luiz Felipe Gonçalves" removeTitleTemplate />
 
       <h1>Hello, world!</h1>
       <p>Welcome to your new Gatsby site.</p>
