@@ -1,0 +1,20 @@
+a {
+  color: #3f51b5;
+  text-decoration: none;
+  border-bottom: solid 1px currentColor;
+}
+
+a:hover {
+  background-color: #3f51b5;
+  color: #fff;
+  border-bottom-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

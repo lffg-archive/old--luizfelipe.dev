@@ -66,8 +66,15 @@ typings/
 # Next.js build output
 .next
 
+# Gatsby.js cache
+.cache
+
 # Other files and folders
 tmp
 build
 dist
 __ignore__*
+
+# Current project only:
+public
+yarn.lock
