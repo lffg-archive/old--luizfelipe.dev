@@ -1,8 +1,0 @@
-node_modules
-__ignore__*
-public
-.cache
-.next
-build
-dist
-*.min.*
