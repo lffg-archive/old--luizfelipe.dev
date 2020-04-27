@@ -1,0 +1,35 @@
+{
+  "name": "@lffg/luizfelipe.dev",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "format:raw": "prettier --write --ignore-path .gitignore",
+    "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
+    "lint": "yarn lint:raw .",
+    "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
+    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-lffg": "^18.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}": [
+      "yarn format:raw"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:raw --fix"
+    ]
+  }
+}
