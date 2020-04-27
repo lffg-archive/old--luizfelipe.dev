@@ -4,14 +4,25 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "gatsby build",
+    "start": "yarn develop",
+    "dev": "gatsby develop",
     "format:raw": "prettier --write --ignore-path .gitignore",
     "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
     "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gatsby": "^2.20.36",
+    "gatsby-plugin-typescript": "^2.3.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "devDependencies": {
+    "@types/node": "^13.13.4",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
     "eslint": "^6.8.0",
     "eslint-config-lffg": "^18.0.1",
     "husky": "^4.2.5",
