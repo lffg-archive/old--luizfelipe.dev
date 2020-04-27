@@ -2,8 +2,6 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "build/dist",
-    "baseUrl": ".",
-    "rootDir": "src",
     "jsx": "react",
     "target": "es5",
     "module": "esnext",

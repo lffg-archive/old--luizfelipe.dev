@@ -5,9 +5,10 @@ module.exports = {
       "Luiz Felipe Gonçalves' website. Articles, tips, tricks and more.",
 
     social: {
-      github: 'lffg'
+      github: 'lffg',
+      twitter: '_lffg'
     }
   },
 
-  plugins: ['gatsby-plugin-typescript']
+  plugins: ['gatsby-plugin-react-helmet', 'gatsby-plugin-typescript']
 };
