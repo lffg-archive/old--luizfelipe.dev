@@ -1,10 +1,10 @@
 export const config = {
-  pt: {
-    default: true,
-    ogLanguage: 'pt_BR'
-  },
   en: {
-    default: false,
+    default: true,
     ogLanguage: 'en_US'
+  },
+  pt: {
+    default: false,
+    ogLanguage: 'pt_BR'
   }
 };
