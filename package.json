@@ -11,7 +11,7 @@
     "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
-    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'",
+    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-path .gitignore --ignore-pattern '!.*.*'",
     "check:ts": "tsc --noEmit --skipLibCheck",
     "check:all": "yarn lint && yarn check:ts"
   },
