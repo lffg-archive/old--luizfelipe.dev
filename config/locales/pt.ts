@@ -5,9 +5,8 @@ type Translations = typeof en;
 
 export const translations: Translations = {
   site: {
-    title: 'Luiz Felipe Gonçalves',
     description:
-      'Site do Luiz Felipe Gonçalves (lffg). Artigos, dicas, tutoriais e mais.'
+      'Website de Luiz Felipe Gonçalves (lffg). Artigos, dicas, tutoriais e mais.'
   },
 
   home: {

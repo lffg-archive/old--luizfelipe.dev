@@ -1,6 +1,5 @@
 export const translations = {
   site: {
-    title: 'Luiz Felipe Gonçalves',
     description:
       "Luiz Felipe Gonçalves' (lffg) website. Articles, tips, tricks and more."
   },
