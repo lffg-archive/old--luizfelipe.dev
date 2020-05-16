@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { useTranslation } from '../context/translation';
 
 const QUERY = graphql`
   query {
@@ -10,28 +11,28 @@ const QUERY = graphql`
           twitter
         }
         title
-        description
       }
     }
   }
 `;
 
 interface Props {
-  description?: string;
-  lang?: string;
-  meta?: any[];
+  description: string;
+  lang: string;
+  meta: any[];
   title: string;
-  removeTitleTemplate?: true;
+  removeTitleTemplate: true;
 }
 
-export function Seo(props: Props) {
+export function Seo(props: Partial<Props>) {
   const { siteMetadata } = useStaticQuery(QUERY).site;
+  const { site } = useTranslation();
 
   const title = props.removeTitleTemplate
     ? props.title
     : `${props.title} · ${siteMetadata.title}`;
 
-  const description = props.description || siteMetadata.description;
+  const description = props.description || site.description;
 
   return (
     <Helmet

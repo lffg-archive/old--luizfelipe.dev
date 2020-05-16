@@ -1,15 +1,19 @@
-import React from 'react';
+import type { PageProps } from 'gatsby';
+import React, { PropsWithChildren } from 'react';
 import { Seo } from '../components/seo';
+import { LocaleContextProvider } from '../context/locale';
+import { TranslationContextProvider } from '../context/translation';
+import type { GatsbyPageContext } from '../modules/gatsby/page-context';
 
-interface Props {
-  children: React.ReactNode;
-}
+type Props = PropsWithChildren<PageProps<{}, GatsbyPageContext>>;
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, pageContext }: Props) {
   return (
-    <div className="lffg-root">
-      <Seo title="Luiz Felipe Gonçalves" removeTitleTemplate />
-      {children}
-    </div>
+    <LocaleContextProvider locale={pageContext.locale}>
+      <TranslationContextProvider translation={pageContext.translation}>
+        <Seo />
+        {children}
+      </TranslationContextProvider>
+    </LocaleContextProvider>
   );
 }
