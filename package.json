@@ -11,7 +11,9 @@
     "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
-    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'"
+    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-pattern '!.*.*'",
+    "check:ts": "tsc --noEmit --skipLibCheck",
+    "check:all": "yarn lint && yarn check:ts"
   },
   "dependencies": {
     "gatsby": "^2.20.36",
@@ -38,7 +40,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn check:all"
     }
   },
   "lint-staged": {
@@ -47,6 +50,9 @@
     ],
     "*.{js,jsx,ts,tsx}": [
       "yarn lint:raw --fix"
+    ],
+    "*{ts,tsx}": [
+      "yarn check:ts"
     ]
   }
 }
