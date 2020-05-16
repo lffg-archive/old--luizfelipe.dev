@@ -1,26 +1,16 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
+import type { Locales } from '../modules/gatsby/page-context';
 
-export interface LocaleContextInterface {
-  locale: string;
-  setLocale: (newLocale: string) => void;
-}
-
-const LocaleContext = createContext<LocaleContextInterface | null>(null);
+const LocaleContext = createContext<Locales | null>(null);
 
 interface Props {
   children: React.ReactNode;
-  locale: string;
+  locale: Locales;
 }
 
 export function LocaleContextProvider(props: Props) {
-  const [locale, setLocale] = useState<string>(props.locale);
-
-  useEffect(() => {
-    setLocale(locale);
-  }, [locale]);
-
   return (
-    <LocaleContext.Provider value={{ locale, setLocale }}>
+    <LocaleContext.Provider value={props.locale}>
       {props.children}
     </LocaleContext.Provider>
   );
