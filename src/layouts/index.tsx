@@ -1,19 +1,12 @@
-import type { PageProps } from 'gatsby';
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { Seo } from '../components/seo';
-import { LocaleContextProvider } from '../context/locale';
-import { TranslationContextProvider } from '../context/translation';
-import type { GatsbyPageContext } from '../modules/gatsby/page-context';
+import type { LayoutProps } from '../modules/gatsby/root-types';
 
-type Props = PropsWithChildren<PageProps<{}, GatsbyPageContext>>;
-
-export default function Layout({ children, pageContext }: Props) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <LocaleContextProvider locale={pageContext.locale}>
-      <TranslationContextProvider translation={pageContext.translation}>
-        <Seo />
-        {children}
-      </TranslationContextProvider>
-    </LocaleContextProvider>
+    <>
+      <Seo />
+      {children}
+    </>
   );
 }
