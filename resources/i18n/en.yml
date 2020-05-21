@@ -1,0 +1,14 @@
+__meta__:
+  default: true
+  pathPrefix: null
+  htmlLangProp: en
+
+site:
+  description: Luiz Felipe Gonçalves' (lffg) website
+
+home:
+  title: Welcome
+
+about:
+  title: About me
+  description: Todo (en)

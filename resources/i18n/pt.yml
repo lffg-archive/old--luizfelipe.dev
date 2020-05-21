@@ -1,0 +1,14 @@
+__meta__:
+  default: false
+  pathPrefix: pt
+  htmlLangProp: pt-BR
+
+site:
+  description: Website de Luiz Felipe Gonçalves (lffg)
+
+home:
+  title: Bem-vindo(a)
+
+about:
+  title: Sobre mim
+  description: A fazer (pt)
