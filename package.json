@@ -12,7 +12,7 @@
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
     "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-path .gitignore --ignore-pattern '!.*.*'",
-    "check:ts": "tsc --noEmit --skipLibCheck",
+    "check:ts": "tsc --skipLibCheck",
     "check:all": "yarn lint && yarn check:ts"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged && yarn check:ts",
       "pre-push": "yarn check:all"
     }
   },
@@ -50,9 +50,6 @@
     ],
     "*.{js,jsx,ts,tsx}": [
       "yarn lint:raw --fix"
-    ],
-    "*{ts,tsx}": [
-      "yarn check:ts"
     ]
   }
 }

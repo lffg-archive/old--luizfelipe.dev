@@ -1,23 +1,17 @@
 {
   "compilerOptions": {
-    "noEmit": false,
-    "outDir": "build/dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "incremental": true,
+    "outDir": "build/ts",
     "jsx": "react",
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "allowJs": false,
-    "strict": true,
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "classnameTransform": "dashesOnly"
-        }
-      }
-    ]
+    "strict": true
   },
-  "exclude": ["node_modules", ".cache", "public", "build", "dist"]
+  "exclude": ["node_modules", ".cache", "public", "build"]
 }
