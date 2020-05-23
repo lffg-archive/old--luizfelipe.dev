@@ -11,6 +11,13 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-layout'
+    'gatsby-plugin-layout',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-143251209-1',
+        cookieDomain: 'luizfelipe.dev'
+      }
+    }
   ]
 };
