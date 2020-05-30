@@ -41,6 +41,7 @@
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5"
   },
+  "prettier": "eslint-config-lffg/prettier",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
