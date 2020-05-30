@@ -2,8 +2,8 @@ import pick from 'lodash.pick';
 import React, { createContext, useContext } from 'react';
 import { ScopedTranslations, Namespaces } from '../../resources/i18n';
 
-export interface ITranslationContext<Page extends Namespaces = Namespaces> {
-  translations: ScopedTranslations<Page>;
+export interface ITranslationContext {
+  translations: ScopedTranslations<Namespaces>;
   basePageName: string;
 }
 
