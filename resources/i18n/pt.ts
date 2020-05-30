@@ -6,16 +6,12 @@ export const translations: Translations = {
   },
 
   index: {
-    title: 'Bem-vindo(a)',
-
-    dynamicTest: (count: number) =>
-      count > 0
-        ? `Existe(m) atualmente ${count.toLocaleString('pt')} campo(s).`
-        : 'Não existem campos atualmente.'
+    greeting:
+      'Olá e seja bem-vindo(a) ao meu (ainda não finalizado) website. Enquanto estou trabalhando nele, deixo abaixo algumas informações para contato:'
   },
 
   about: {
     title: 'Sobre mim',
-    description: 'Todo (pt)'
+    desc: 'Todo (pt)'
   }
 };

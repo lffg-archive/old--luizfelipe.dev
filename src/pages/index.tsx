@@ -1,5 +1,6 @@
 import React from 'react';
 import { Seo } from '../components/seo';
+import { useTranslation } from '../context/translation';
 
 // prettier-ignore
 const contactInfo = [
@@ -11,11 +12,14 @@ const contactInfo = [
 ] as const;
 
 export default function Index() {
+  const { index } = useTranslation('index');
+
   return (
     <>
       <Seo title="Luiz Felipe Gonçalves" removeTitleTemplate />
 
       <h1>Luiz Felipe Gonçalves</h1>
+      <p>{index.greeting}</p>
       <ul>
         {contactInfo.map(([name, profile, link]) => (
           <li key={name}>

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Seo } from '../components/seo';
+import { useTranslation } from '../context/translation';
 
 export default function About() {
+  const { about } = useTranslation('about');
   return (
     <>
-      <Seo title="About" />
+      <Seo title={about.title} />
 
-      <h2>About</h2>
-      <p>About</p>
+      <h1>{about.title}</h1>
+      <p>{about.desc}</p>
     </>
   );
 }

@@ -6,16 +6,12 @@ export const translations = {
   },
 
   index: {
-    title: 'Welcome',
-
-    dynamicTest: (count: number) =>
-      count > 0
-        ? `There are currently ${count.toLocaleString('en')} fields.`
-        : 'There are no fields.'
+    greeting:
+      'Hello and welcome to my (not so ready) website. As I am working on it, I leave below some contact information:'
   },
 
   about: {
     title: 'About me',
-    description: 'Todo (en)'
+    desc: 'Todo (en)'
   }
 };
