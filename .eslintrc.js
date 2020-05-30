@@ -8,5 +8,8 @@ module.exports = {
         'import/no-default-export': 0
       }
     }
-  ]
+  ],
+  rules: {
+    'react/jsx-pascal-case': [1, { allowAllCaps: true }]
+  }
 };
