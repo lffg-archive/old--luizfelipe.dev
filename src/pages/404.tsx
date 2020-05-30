@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { Seo } from '../components/seo';
+import { SEO } from '../components/seo';
 
 export default function NotFound() {
   return (
     <>
-      <Seo title="Not Found" />
+      <SEO title="Not Found" />
 
       <h1>Not Found 🙁</h1>
       <p>The page you are looking for does not appear to exist here.</p>

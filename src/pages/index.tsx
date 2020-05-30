@@ -1,5 +1,5 @@
 import React from 'react';
-import { Seo } from '../components/seo';
+import { SEO } from '../components/seo';
 import { useTranslation } from '../context/translation';
 
 // prettier-ignore
@@ -16,7 +16,7 @@ export default function Index() {
 
   return (
     <>
-      <Seo title="Luiz Felipe Gonçalves" removeTitleTemplate />
+      <SEO title="Luiz Felipe Gonçalves" removeTitleTemplate />
 
       <h1>Luiz Felipe Gonçalves</h1>
       <p>{index.greeting}</p>
