@@ -33,7 +33,8 @@ export const gatsbyNode: GatsbyNode = {
 
         context: {
           basePageName,
-          locale: locale as i18n.Locale,
+          currentLocale: locale as i18n.Locale,
+          defaultLocale: i18n.config.defaultLocale,
           serializedTranslations:
             // This will ensure functions are "available" to the pages.
             // TODO: Minify the functions using the second argument.

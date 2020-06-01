@@ -1,18 +1,20 @@
 import React, { createContext, useContext } from 'react';
 import { Locale } from '../../resources/i18n';
 
-const LocaleContext = createContext<Locale | null>(null);
-
-interface Props {
-  children: React.ReactNode;
-  locale: Locale;
+export interface ILocaleContext {
+  currentLocale: Locale;
+  defaultLocale: Locale;
 }
 
-export function LocaleContextProvider(props: Props) {
+const LocaleContext = createContext<ILocaleContext | null>(null);
+
+interface Props extends ILocaleContext {
+  children: React.ReactNode;
+}
+
+export function LocaleContextProvider({ children, ...props }: Props) {
   return (
-    <LocaleContext.Provider value={props.locale}>
-      {props.children}
-    </LocaleContext.Provider>
+    <LocaleContext.Provider value={props}>{children}</LocaleContext.Provider>
   );
 }
 
