@@ -1,4 +1,4 @@
-import { parse } from 'path';
+import { parse, basename } from 'path';
 import type { GatsbyNode } from 'gatsby';
 import pick from 'lodash.pick';
 import * as i18n from '../../../resources/i18n';
@@ -54,17 +54,22 @@ export const gatsbyNode: GatsbyNode = {
     const { createNodeField } = actions;
 
     if (node.internal.type === 'Mdx') {
-      const path = parse((node as any).fileAbsolutePath);
+      const { name: locale, dir } = parse((node as any).fileAbsolutePath);
 
-      if (!Object.keys(i18n.allTranslations).includes(path.name)) {
-        throw new Error(`Invalid post name: "${path.name}".`);
+      if (!Object.keys(i18n.allTranslations).includes(locale)) {
+        throw new Error(`Invalid post name: "${locale}".`);
       }
 
-      createNodeField({
-        node,
-        name: 'locale',
-        value: path.name
-      });
+      const postName = basename(dir);
+      const postLink = `${locale}/${postName}`;
+      const editPostLink = `TODO`;
+
+      [
+        { name: 'locale', value: locale },
+        { name: 'postName', value: postName },
+        { name: 'postLink', value: postLink },
+        { name: 'editPostLink', value: editPostLink }
+      ].forEach((fields) => createNodeField({ node, ...fields }));
     }
   }
 };
