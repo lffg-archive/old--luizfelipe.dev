@@ -1,6 +1,6 @@
 import type { PageProps as GatsbyPageProps } from 'gatsby';
 import type { ReactNode } from 'react';
-import type { Locale } from '../../../resources/i18n';
+import type { Locale } from '../../resources/i18n';
 
 export interface GatsbyPageContext {
   locale: Locale;
@@ -22,4 +22,7 @@ export type LayoutProps = Omit<
   children: ReactNode;
 };
 
-export type PageProps<Ctx = {}> = GatsbyPageProps<{}, GatsbyPageContext & Ctx>;
+export type PageProps<Data = {}, Ctx = {}> = GatsbyPageProps<
+  Data,
+  GatsbyPageContext & Ctx
+>;

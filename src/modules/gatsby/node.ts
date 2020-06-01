@@ -2,9 +2,9 @@ import { parse } from 'path';
 import type { GatsbyNode } from 'gatsby';
 import pick from 'lodash.pick';
 import * as i18n from '../../../resources/i18n';
+import type { GatsbyPageContext } from '../../types/gatsby';
 import { stringifyJSONFn as stringify } from '../utils/json';
 import { trimSlashes } from '../utils/trim-slashes';
-import type { GatsbyPageContext } from './root-types';
 
 export const gatsbyNode: GatsbyNode = {
   onCreatePage: ({ actions, page }) => {
