@@ -33,16 +33,14 @@ export const gatsbyNode: GatsbyNode = {
 
         context: {
           basePageName,
-          i18n: {
-            locale: locale as i18n.Locale,
-            serializedTranslations:
-              // This will ensure functions are "available" to the pages.
-              // TODO: Minify the functions using the second argument.
-              stringify<i18n.ScopedTranslations<i18n.Namespaces>>(
-                // Forward only translations specific to each page.
-                pick(translations, ['site', basePageName as i18n.Namespaces])
-              )
-          }
+          locale: locale as i18n.Locale,
+          serializedTranslations:
+            // This will ensure functions are "available" to the pages.
+            // TODO: Minify the functions using the second argument.
+            stringify<i18n.ScopedTranslations<i18n.Namespaces>>(
+              // Forward only translations specific to each page.
+              pick(translations, ['site', basePageName as i18n.Namespaces])
+            )
         }
       });
     });

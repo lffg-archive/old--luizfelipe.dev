@@ -7,11 +7,11 @@ import type { LayoutProps } from '../modules/gatsby/root-types';
 import { parseJSONFn } from '../modules/utils/json';
 
 export default function Layout({ children, pageContext }: LayoutProps) {
-  const { basePageName, i18n } = pageContext;
-  const translations = parseJSONFn<Translations>(i18n.serializedTranslations);
+  const { basePageName, locale, serializedTranslations } = pageContext;
+  const translations = parseJSONFn<Translations>(serializedTranslations);
 
   return (
-    <LocaleContextProvider locale={i18n.locale}>
+    <LocaleContextProvider locale={locale}>
       <TranslationContextProvider
         basePageName={basePageName}
         translations={translations}

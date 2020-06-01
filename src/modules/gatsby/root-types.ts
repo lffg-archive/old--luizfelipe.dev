@@ -3,10 +3,8 @@ import type { ReactNode } from 'react';
 import type { Locale } from '../../../resources/i18n';
 
 export interface GatsbyPageContext {
-  i18n: {
-    locale: Locale;
-    serializedTranslations: string;
-  };
+  locale: Locale;
+  serializedTranslations: string;
 
   /**
    * The name of the original page. Is separated by slashes (`/`) if the page is
