@@ -3,8 +3,8 @@ import type { Translations } from '../../resources/i18n';
 import { SEO } from '../components/seo';
 import { LocaleContextProvider } from '../context/locale';
 import { TranslationContextProvider } from '../context/translation';
-import { parseJSONFn } from '../modules/utils/json';
 import type { LayoutProps } from '../types/gatsby';
+import { parseJSONFn } from '../utils/json';
 
 export default function Layout({ children, pageContext }: LayoutProps) {
   const {
