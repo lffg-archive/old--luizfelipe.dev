@@ -9,6 +9,7 @@ import type { PageProps } from '../types/gatsby';
 const contactInfo = [
   ['Website',   'luizfelipe.dev',      'https://luizfelipe.dev'],
   ['GitHub',    'lffg',                'https://github.com/lffg'],
+  ['Twitter',   '_lffg',               'https://twitter.com/_lffg'],
   ['Telegram',  'luizffg',             'https://t.me/luizffg'],
   ['E-Mail',    'lffgluiz@gmail.com'],
   ['Discord',   'Luiz#2029']
