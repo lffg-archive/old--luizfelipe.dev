@@ -7,7 +7,10 @@ export const translations = {
 
   index: {
     greeting:
-      'Hello and welcome to my (not so ready) website. As I am working on it, I leave below some contact information:'
+      'Hello and welcome to my (not so ready) website. As I am working on it, I leave below some contact information:',
+    latestPosts: 'Latest posts',
+    aboutMe: 'About me.',
+    postedIn: (relative: string) => `Posted ${relative}.`
   },
 
   about: {
