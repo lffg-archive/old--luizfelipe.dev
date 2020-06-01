@@ -20,8 +20,13 @@ export function LocaleContextProvider({ children, ...props }: Props) {
 
 export function useLocale() {
   const ctx = useContext(LocaleContext);
+
   if (ctx === null) {
     throw new Error('You must use `useLocale` within its provider.');
   }
-  return ctx;
+
+  return {
+    ...ctx,
+    isDefaultLocale: ctx.currentLocale === ctx.defaultLocale
+  };
 }
