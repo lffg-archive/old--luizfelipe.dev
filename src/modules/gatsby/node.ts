@@ -1,12 +1,7 @@
+import { parse } from 'path';
 import type { GatsbyNode } from 'gatsby';
 import pick from 'lodash.pick';
-import {
-  allTranslations,
-  config,
-  Locale,
-  ScopedTranslations,
-  Namespaces
-} from '../../../resources/i18n';
+import * as i18n from '../../../resources/i18n';
 import { stringifyJSONFn as stringify } from '../utils/json';
 import { trimSlashes } from '../utils/trim-slashes';
 import type { GatsbyPageContext } from './root-types';
@@ -19,9 +14,9 @@ export const gatsbyNode: GatsbyNode = {
 
     let defaultFound = false;
 
-    Object.entries(allTranslations).forEach(([locale, translations]) => {
+    Object.entries(i18n.allTranslations).forEach(([locale, translations]) => {
       const basePageName = trimSlashes(page.path).trim() || 'index';
-      const isDefault = locale === config.defaultLocale;
+      const isDefault = locale === i18n.config.defaultLocale;
 
       if (!defaultFound && isDefault) {
         defaultFound = true;
@@ -39,13 +34,13 @@ export const gatsbyNode: GatsbyNode = {
         context: {
           basePageName,
           i18n: {
-            locale: locale as Locale,
+            locale: locale as i18n.Locale,
             serializedTranslations:
               // This will ensure functions are "available" to the pages.
               // TODO: Minify the functions using the second argument.
-              stringify<ScopedTranslations<Namespaces>>(
+              stringify<i18n.ScopedTranslations<i18n.Namespaces>>(
                 // Forward only translations specific to each page.
-                pick(translations, ['site', basePageName as Namespaces])
+                pick(translations, ['site', basePageName as i18n.Namespaces])
               )
           }
         }
@@ -54,6 +49,24 @@ export const gatsbyNode: GatsbyNode = {
 
     if (!defaultFound) {
       throw new Error('You must set a default locale in the i18n config file.');
+    }
+  },
+
+  onCreateNode: ({ node, actions }) => {
+    const { createNodeField } = actions;
+
+    if (node.internal.type === 'Mdx') {
+      const path = parse((node as any).fileAbsolutePath);
+
+      if (!Object.keys(i18n.allTranslations).includes(path.name)) {
+        throw new Error(`Invalid post name: "${path.name}".`);
+      }
+
+      createNodeField({
+        node,
+        name: 'locale',
+        value: path.name
+      });
     }
   }
 };
