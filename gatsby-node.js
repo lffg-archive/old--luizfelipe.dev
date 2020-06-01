@@ -1,5 +1,3 @@
-// https://www.gatsbyjs.org/docs/node-apis/
-
 require('ts-node').register({
   compilerOptions: {
     module: 'commonjs',
