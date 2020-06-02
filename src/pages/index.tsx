@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { LocalizedLink } from '../components/localized-link';
 import { SEO } from '../components/seo';
-import { useTranslation } from '../context/translation';
+import { useTranslations } from '../context/translations';
 import type { PageProps } from '../types/gatsby';
 
 // prettier-ignore
@@ -16,7 +16,7 @@ const contactInfo = [
 ] as const;
 
 export default function Index({ data }: PageProps<Data>) {
-  const { index } = useTranslation('index');
+  const { index } = useTranslations('index');
 
   return (
     <>

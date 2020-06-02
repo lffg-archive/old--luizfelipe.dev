@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useTranslation } from '../context/translation';
+import { useTranslations } from '../context/translations';
 
 const QUERY = graphql`
   query {
@@ -26,7 +26,7 @@ interface Props {
 
 export function SEO(props: Partial<Props>) {
   const { siteMetadata } = useStaticQuery(QUERY).site;
-  const { site } = useTranslation();
+  const { site } = useTranslations();
 
   const title = props.removeTitleTemplate
     ? props.title

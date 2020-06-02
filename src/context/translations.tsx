@@ -2,33 +2,33 @@ import pick from 'lodash.pick';
 import React, { createContext, useContext } from 'react';
 import { ScopedTranslations, Namespaces } from '../../resources/i18n';
 
-export interface ITranslationContext {
+export interface ITranslationsContext {
   translations: ScopedTranslations<Namespaces>;
   basePageName: string;
 }
 
-const TranslationContext = createContext<ITranslationContext | null>(null);
+const TranslationsContext = createContext<ITranslationsContext | null>(null);
 
-interface Props extends ITranslationContext {
+interface Props extends ITranslationsContext {
   children: React.ReactNode;
 }
 
-export function TranslationContextProvider({ children, ...props }: Props) {
+export function TranslationsContextProvider({ children, ...props }: Props) {
   return (
-    <TranslationContext.Provider value={props}>
+    <TranslationsContext.Provider value={props}>
       {children}
-    </TranslationContext.Provider>
+    </TranslationsContext.Provider>
   );
 }
 
-export function useTranslation<K extends Namespaces = never>(
+export function useTranslations<K extends Namespaces = never>(
   key?: K
 ): ScopedTranslations<K> {
   const ensuredKey = key || 'site';
-  const ctx = useContext(TranslationContext);
+  const ctx = useContext(TranslationsContext);
 
   if (ctx === null) {
-    throw new Error('You must use `useTranslation` within its provider.');
+    throw new Error('You must use `useTranslations` within its provider.');
   }
 
   const { basePageName, translations } = ctx;

@@ -1,10 +1,16 @@
 import { parse, basename, resolve } from 'path';
 import type { GatsbyNode } from 'gatsby';
-import pick from 'lodash.pick';
-import * as i18n from '../../../resources/i18n';
+import {
+  locales,
+  allTranslations,
+  isDefaultLocale,
+  createLocalizedPath,
+  isValidLocale,
+  Locale
+} from '../../../resources/i18n';
 import type { GatsbyPageContext } from '../../types/gatsby';
-import { stringifyJSONFn as stringify } from '../../utils/json';
 import { trimSlashes, ensureSlashes } from '../../utils/slashes';
+import { createInternationalizationContextData } from './helpers';
 
 export const gatsbyNode: GatsbyNode = {
   /**
@@ -22,8 +28,8 @@ export const gatsbyNode: GatsbyNode = {
    *  - `/about` (used by the default locale — e.g. English in this website)
    *  - `/pt/about`
    *
-   * All translations and other information related to the internationalization
-   * process are passed to the page via Gatsby page context.
+   * The translations (specific to each page) and other internationalization
+   * information are passed to each page via its context.
    */
   onCreatePage: ({ actions, page }) => {
     const { createPage, deletePage } = actions;
@@ -34,35 +40,28 @@ export const gatsbyNode: GatsbyNode = {
     let defaultFound = false;
 
     // For each translation available to the website, iterate, and [...*]
-    Object.entries(i18n.allTranslations).forEach(([locale, translations]) => {
+    locales.forEach((locale) => {
+      const translations = allTranslations[locale];
       const basePageName = trimSlashes(page.path).trim() || 'index';
-      const isDefault = locale === i18n.config.defaultLocale;
 
-      if (!defaultFound && isDefault) {
+      if (!defaultFound && isDefaultLocale(locale)) {
         defaultFound = true;
       }
 
-      // [...*] Create a page for the current iteration's translation.
+      // [...*] Create a page for the current iteration's translations.
       createPage<GatsbyPageContext>({
         ...page,
 
-        path: isDefault
-          ? // The default locale don't get a path prefix.
-            page.path
-          : // The other locales are path-prefixed.
-            `/${locale}/${trimSlashes(page.path)}`,
+        path: createLocalizedPath({
+          locale,
+          base: page.path
+        }),
 
-        context: {
+        context: createInternationalizationContextData<any>({
           basePageName,
-          currentLocale: locale as i18n.Locale,
-          defaultLocale: i18n.config.defaultLocale,
-          serializedTranslations:
-            // This will ensure functions are "available" to the pages.
-            stringify<i18n.ScopedTranslations<i18n.Namespaces>>(
-              // Forward only translations specific to each page.
-              pick(translations, ['site', basePageName as i18n.Namespaces])
-            )
-        }
+          translations,
+          locale
+        })
       });
     });
 
@@ -82,19 +81,16 @@ export const gatsbyNode: GatsbyNode = {
     if (node.internal.type === 'Mdx') {
       const { name: locale, dir, base } = parse((node as any).fileAbsolutePath);
 
-      if (!Object.keys(i18n.allTranslations).includes(locale)) {
+      if (!isValidLocale(locale)) {
         throw new Error(`Invalid article name: "${locale}".`);
       }
 
       const articleName = trimSlashes(basename(dir));
-
       const articleLink = `article/${articleName}`;
-
-      const localizedArticleLink =
-        i18n.config.defaultLocale === locale
-          ? articleLink
-          : `${locale}/${articleLink}`;
-
+      const localizedArticleLink = createLocalizedPath({
+        locale,
+        base: articleLink
+      });
       const editArticleLink =
         'https://github.com/lffg/luizfelipe.dev/edit/master/resources/articles/' +
         `${articleName}/${base}`;
@@ -128,7 +124,7 @@ export const gatsbyNode: GatsbyNode = {
           id: string;
           fields: {
             localizedArticleLink: string;
-            locale: i18n.Locale;
+            locale: Locale;
           };
         }>;
       };
@@ -161,19 +157,18 @@ export const gatsbyNode: GatsbyNode = {
 
     data.articles.nodes.forEach(({ id, fields }) => {
       const { locale, localizedArticleLink } = fields;
-      const translation = i18n.allTranslations[locale];
+      const translations = allTranslations[locale];
 
-      createPage<GatsbyPageContext & { id: string }>({
+      createPage<GatsbyPageContext<{ id: string }>>({
         component: resolve(process.cwd(), 'src/templates/article.tsx'),
         path: localizedArticleLink,
         context: {
           id: id,
-          basePageName: 'article',
-          currentLocale: locale,
-          defaultLocale: i18n.config.defaultLocale,
-          serializedTranslations: stringify<i18n.ScopedTranslations<'article'>>(
-            pick(translation, ['site', 'article'])
-          )
+          ...createInternationalizationContextData<'article'>({
+            basePageName: 'article',
+            translations,
+            locale
+          })
         }
       });
     });

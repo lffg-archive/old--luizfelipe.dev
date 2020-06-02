@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { locales, Locale } from '../../resources/i18n';
+import { locales, Locale, createLocalizedPath } from '../../resources/i18n';
 import { useLocale } from '../context/locale';
 
 function getMessage(locale: Locale) {
@@ -18,14 +18,20 @@ function getMessage(locale: Locale) {
 }
 
 export function LocaleChanger() {
-  const { currentLocale, defaultLocale } = useLocale();
+  const { currentLocale } = useLocale();
 
   return (
     <div>
       {locales
         .filter((locale) => locale !== currentLocale)
         .map((locale) => (
-          <Link key={locale} to={locale === defaultLocale ? '/' : `/${locale}`}>
+          <Link
+            key={locale}
+            to={createLocalizedPath({
+              base: '/',
+              locale
+            })}
+          >
             {getMessage(locale)}
           </Link>
         ))}

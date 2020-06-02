@@ -3,11 +3,11 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { LocalizedLink } from '../components/localized-link';
 import { SEO } from '../components/seo';
-import { useTranslation } from '../context/translation';
+import { useTranslations } from '../context/translations';
 import type { PageProps } from '../types/gatsby';
 
 export default function Article({ data }: PageProps<Data>) {
-  const { site } = useTranslation();
+  const { site } = useTranslations();
 
   const { body, frontmatter } = data.article;
 

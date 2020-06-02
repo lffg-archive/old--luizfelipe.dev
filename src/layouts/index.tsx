@@ -3,7 +3,7 @@ import type { Translations } from '../../resources/i18n';
 import { LocaleChanger } from '../components/locale-changer';
 import { SEO } from '../components/seo';
 import { LocaleContextProvider } from '../context/locale';
-import { TranslationContextProvider } from '../context/translation';
+import { TranslationsContextProvider } from '../context/translations';
 import type { LayoutProps } from '../types/gatsby';
 import { parseJSONFn } from '../utils/json';
 
@@ -22,7 +22,7 @@ export default function Layout({ children, pageContext }: LayoutProps) {
       currentLocale={currentLocale}
       defaultLocale={defaultLocale}
     >
-      <TranslationContextProvider
+      <TranslationsContextProvider
         basePageName={basePageName}
         translations={translations}
       >
@@ -34,7 +34,7 @@ export default function Layout({ children, pageContext }: LayoutProps) {
           <hr />
           <LocaleChanger />
         </footer>
-      </TranslationContextProvider>
+      </TranslationsContextProvider>
     </LocaleContextProvider>
   );
 }

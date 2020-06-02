@@ -1,9 +1,9 @@
 import React from 'react';
 import { SEO } from '../components/seo';
-import { useTranslation } from '../context/translation';
+import { useTranslations } from '../context/translations';
 
 export default function About() {
-  const { about } = useTranslation('about');
+  const { about } = useTranslations('about');
   return (
     <>
       <SEO title={about.title} />

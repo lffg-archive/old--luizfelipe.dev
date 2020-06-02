@@ -1,5 +1,32 @@
+import { trimSlashes } from '../../src/utils/slashes';
 import { translations as en } from './en';
 import { translations as pt } from './pt';
+
+// INTERNATIONALIZATION HELPER FUNCTIONS
+// =====================================
+
+export function isValidLocale(locale: string): locale is Locale {
+  return locales.includes(locale as Locale);
+}
+
+export function isDefaultLocale(locale: Locale) {
+  return locale === config.defaultLocale;
+}
+
+interface CreateLocalizedPathOptions {
+  locale: Locale;
+  base: string;
+}
+
+export function createLocalizedPath(options: CreateLocalizedPathOptions) {
+  const { locale, base } = options;
+
+  return isDefaultLocale(locale)
+    ? // The default locale does not get a path prefix.
+      '/' + trimSlashes(base)
+    : // The other locales have a path prefix.
+      `/${locale}/${trimSlashes(base)}`;
+}
 
 // INTERNATIONALIZATION CONFIGURATION
 // ==================================
