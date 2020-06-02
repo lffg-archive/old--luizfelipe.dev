@@ -80,26 +80,36 @@ export const gatsbyNode: GatsbyNode = {
     const { createNodeField } = actions;
 
     if (node.internal.type === 'Mdx') {
-      const { name: locale, dir } = parse((node as any).fileAbsolutePath);
+      const { name: locale, dir, base } = parse((node as any).fileAbsolutePath);
 
       if (!Object.keys(i18n.allTranslations).includes(locale)) {
         throw new Error(`Invalid article name: "${locale}".`);
       }
 
-      const articleName = basename(dir);
+      const articleName = trimSlashes(basename(dir));
 
-      const articleLink =
-        'article/' +
-        (i18n.config.defaultLocale === locale
-          ? articleName
-          : `${locale}/${articleName}`);
+      const articleLink = `article/${articleName}`;
 
-      const editArticleLink = `TODO`;
+      const localizedArticleLink =
+        i18n.config.defaultLocale === locale
+          ? articleLink
+          : `${locale}/${articleLink}`;
+
+      const editArticleLink =
+        'https://github.com/lffg/luizfelipe.dev/edit/master/resources/articles/' +
+        `${articleName}/${base}`;
 
       [
         { name: 'locale', value: locale },
         { name: 'articleName', value: articleName },
-        { name: 'articleLink', value: ensureSlashes(articleLink) },
+        {
+          name: 'articleLink',
+          value: ensureSlashes(articleLink)
+        },
+        {
+          name: 'localizedArticleLink',
+          value: ensureSlashes(localizedArticleLink)
+        },
         { name: 'editArticleLink', value: editArticleLink }
       ].forEach((fields) => createNodeField({ node, ...fields }));
     }
