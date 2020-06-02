@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Translations } from '../../resources/i18n';
+import { LocaleChanger } from '../components/locale-changer';
 import { SEO } from '../components/seo';
 import { LocaleContextProvider } from '../context/locale';
 import { TranslationContextProvider } from '../context/translation';
@@ -26,7 +27,13 @@ export default function Layout({ children, pageContext }: LayoutProps) {
         translations={translations}
       >
         <SEO />
+
         {children}
+
+        <footer>
+          <hr />
+          <LocaleChanger />
+        </footer>
       </TranslationContextProvider>
     </LocaleContextProvider>
   );
