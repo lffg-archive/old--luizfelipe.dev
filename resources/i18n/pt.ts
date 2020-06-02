@@ -8,7 +8,7 @@ export const translations: Translations = {
   index: {
     greeting:
       'Olá e seja bem-vindo(a) ao meu (ainda não finalizado) website. Enquanto estou trabalhando nele, deixo abaixo algumas informações para contato:',
-    latestPosts: 'Últimas postagens',
+    latestArticles: 'Últimos artigos',
     aboutMe: 'Sobre mim.',
     postedIn: (relative: string) => `Postado ${relative}.`
   },

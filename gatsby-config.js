@@ -18,7 +18,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: join(__dirname, 'resources/posts')
+        path: join(__dirname, 'resources/articles')
       }
     },
     'gatsby-plugin-mdx',

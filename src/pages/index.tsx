@@ -43,18 +43,18 @@ export default function Index({ data }: PageProps<Data>) {
         ))}
       </ul>
 
-      <h3>{index.latestPosts}</h3>
+      <h3>{index.latestArticles}</h3>
       <ul>
-        {data.allMdx.nodes.map((post) => (
-          <li key={post.id}>
+        {data.articles.nodes.map((article) => (
+          <li key={article.id}>
             <h4 style={{ margin: 0 }}>
-              <LocalizedLink to={post.fields.postName}>
-                {post.frontmatter.title}
+              <LocalizedLink to={article.fields.articleName}>
+                {article.frontmatter.title}
               </LocalizedLink>
             </h4>
             <div>
-              {post.frontmatter.desc} &middot;{' '}
-              {index.postedIn(post.frontmatter.relativeDate)}
+              {article.frontmatter.desc} &middot;{' '}
+              {index.postedIn(article.frontmatter.relativeDate)}
             </div>
           </li>
         ))}
@@ -64,11 +64,11 @@ export default function Index({ data }: PageProps<Data>) {
 }
 
 export interface Data {
-  allMdx: {
+  articles: {
     nodes: Array<{
       id: string;
       fields: {
-        postName: string;
+        articleName: string;
       };
       frontmatter: {
         title: string;
@@ -80,7 +80,7 @@ export interface Data {
 }
 
 export const query = graphql`
-  query AllPosts($currentLocale: String) {
+  query AllArticles($currentLocale: String) {
     allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { fields: { locale: { eq: $currentLocale } } }
@@ -88,7 +88,7 @@ export const query = graphql`
       nodes {
         id
         fields {
-          postName
+          articleName
         }
         frontmatter {
           title
