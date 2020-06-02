@@ -127,7 +127,7 @@ export const gatsbyNode: GatsbyNode = {
         nodes: Array<{
           id: string;
           fields: {
-            articleLink: string;
+            localizedArticleLink: string;
             locale: i18n.Locale;
           };
         }>;
@@ -138,7 +138,7 @@ export const gatsbyNode: GatsbyNode = {
           nodes {
             id
             fields {
-              articleLink
+              localizedArticleLink
               locale
             }
           }
@@ -160,12 +160,12 @@ export const gatsbyNode: GatsbyNode = {
     }
 
     data.articles.nodes.forEach(({ id, fields }) => {
-      const { locale, articleLink } = fields;
+      const { locale, localizedArticleLink } = fields;
       const translation = i18n.allTranslations[locale];
 
       createPage<GatsbyPageContext & { id: string }>({
         component: resolve(process.cwd(), 'src/templates/article.tsx'),
-        path: articleLink,
+        path: localizedArticleLink,
         context: {
           id: id,
           basePageName: 'article',

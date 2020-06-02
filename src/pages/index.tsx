@@ -48,7 +48,7 @@ export default function Index({ data }: PageProps<Data>) {
         {data.articles.nodes.map((article) => (
           <li key={article.id}>
             <h4 style={{ margin: 0 }}>
-              <LocalizedLink to={article.fields.articleName}>
+              <LocalizedLink to={article.fields.articleLink}>
                 {article.frontmatter.title}
               </LocalizedLink>
             </h4>
@@ -68,7 +68,7 @@ export interface Data {
     nodes: Array<{
       id: string;
       fields: {
-        articleName: string;
+        articleLink: string;
       };
       frontmatter: {
         title: string;
@@ -88,7 +88,7 @@ export const query = graphql`
       nodes {
         id
         fields {
-          articleName
+          articleLink
         }
         frontmatter {
           title
