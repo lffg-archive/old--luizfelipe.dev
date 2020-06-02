@@ -16,5 +16,7 @@ export const translations: Translations = {
   about: {
     title: 'Sobre mim',
     desc: 'Todo (pt)'
-  }
+  },
+
+  article: {}
 };

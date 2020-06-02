@@ -81,7 +81,7 @@ export interface Data {
 
 export const query = graphql`
   query AllArticles($currentLocale: String) {
-    allMdx(
+    articles: allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { fields: { locale: { eq: $currentLocale } } }
     ) {
