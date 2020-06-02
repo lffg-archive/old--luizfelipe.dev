@@ -1,5 +1,5 @@
-// English translations does not require an explicit type because it is used to
-// derive the `Translations` type. See the config.ts file in this directory.
+// English translations do not require an explicit type because they are used to
+// derive the `Translations` type. See the `index.ts` file in this directory.
 export const translations = {
   site: {
     description: "Luiz Felipe Gonçalves' (lffg) website",
