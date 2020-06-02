@@ -11,7 +11,9 @@ export const config: Config = {
 // INTERNATIONALIZATION DATA
 // =========================
 
-export const allTranslations = {
+export const locales = ['en', 'pt'] as const;
+
+export const allTranslations: AllTranslations = {
   en,
   pt
 } as const;
@@ -19,9 +21,9 @@ export const allTranslations = {
 // TYPES AND CONSTANTS
 // ===================
 
-export type Locale = keyof AllTranslations;
+export type Locale = typeof locales[number];
 
-export type AllTranslations = typeof allTranslations;
+export type AllTranslations = Record<Locale, Translations>;
 export type Translations = typeof en;
 export type ScopedTranslations<Namespace extends Namespaces> = Pick<
   Translations,
