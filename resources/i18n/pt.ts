@@ -2,7 +2,8 @@ import type { Translations } from '.';
 
 export const translations: Translations = {
   site: {
-    description: 'Website de Luiz Felipe Gonçalves (lffg)'
+    description: 'Website de Luiz Felipe Gonçalves (lffg)',
+    home: 'Voltar ao início'
   },
 
   index: {

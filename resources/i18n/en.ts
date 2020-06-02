@@ -2,7 +2,8 @@
 // derive the `Translation` type. See the config.ts file in this directory.
 export const translations = {
   site: {
-    description: "Luiz Felipe Gonçalves' (lffg) website"
+    description: "Luiz Felipe Gonçalves' (lffg) website",
+    home: 'Back to home'
   },
 
   index: {

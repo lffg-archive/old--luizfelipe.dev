@@ -1,15 +1,23 @@
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
+import { LocalizedLink } from '../components/localized-link';
 import { SEO } from '../components/seo';
+import { useTranslation } from '../context/translation';
 import type { PageProps } from '../types/gatsby';
 
-export default function Article({ data, pageContext }: PageProps<Data>) {
+export default function Article({ data }: PageProps<Data>) {
+  const { site } = useTranslation();
+
+  const { body, frontmatter } = data.article;
+
   return (
     <>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <pre>{JSON.stringify(pageContext, null, 2)}</pre>
-      <SEO title="Luiz Felipe Gonçalves" removeTitleTemplate />
-      <h1>Article Page</h1>
+      <SEO title={frontmatter.title} />
+
+      <LocalizedLink to="/">{site.home}</LocalizedLink>
+      <h1>{frontmatter.title}</h1>
+      <MDXRenderer>{body}</MDXRenderer>
     </>
   );
 }
