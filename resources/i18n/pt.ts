@@ -10,8 +10,7 @@ export const translations: Translations = {
     greeting:
       'Olá e seja bem-vindo(a) ao meu (ainda não finalizado) website. Enquanto estou trabalhando nele, deixo abaixo algumas informações para contato:',
     latestArticles: 'Últimos artigos',
-    aboutMe: 'Sobre mim.',
-    postedIn: (relative: string) => `Postado ${relative}.`
+    aboutMe: 'Sobre mim.'
   },
 
   about: {

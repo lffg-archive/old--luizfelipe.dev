@@ -53,8 +53,7 @@ export default function Index({ data }: PageProps<Data>) {
               </LocalizedLink>
             </h4>
             <div>
-              {article.frontmatter.desc} &middot;{' '}
-              {index.postedIn(article.frontmatter.relativeDate)}
+              {article.frontmatter.desc} &middot; {article.frontmatter.fmtDate}
             </div>
           </li>
         ))}
@@ -73,14 +72,14 @@ export interface Data {
       frontmatter: {
         title: string;
         desc: string;
-        relativeDate: string;
+        fmtDate: string;
       };
     }>;
   };
 }
 
 export const query = graphql`
-  query AllArticles($currentLocale: String) {
+  query AllArticles($currentLocale: String, $dateFmt: String) {
     articles: allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { fields: { locale: { eq: $currentLocale } } }
@@ -93,7 +92,7 @@ export const query = graphql`
         frontmatter {
           title
           desc
-          relativeDate: date(fromNow: true, locale: $currentLocale)
+          fmtDate: date(formatString: $dateFmt, locale: $currentLocale)
         }
       }
     }
