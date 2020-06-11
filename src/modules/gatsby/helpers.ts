@@ -1,10 +1,10 @@
 import pick from 'lodash.pick';
 import {
   config,
-  Translations,
   ScopedTranslations,
   Namespaces,
-  Locale
+  Locale,
+  allTranslationsData
 } from '../../../resources/i18n';
 import { GatsbyPageContext } from '../../types/gatsby';
 import { stringifyJSONFn as stringify } from '../../utils/json';
@@ -12,7 +12,6 @@ import { stringifyJSONFn as stringify } from '../../utils/json';
 interface CreateInternationalizationContextDataOptions<
   Namespace extends Namespaces
 > {
-  translations: Translations;
   basePageName: Namespace;
   locale: Locale;
 }
@@ -22,9 +21,15 @@ export function createInternationalizationContextData<
 >(
   options: CreateInternationalizationContextDataOptions<Namespace>
 ): GatsbyPageContext {
-  const { basePageName, translations, locale } = options;
+  const { basePageName, locale } = options;
+  const { translations, context } = allTranslationsData[locale];
 
-  return {
+  if (!translations[basePageName]) {
+    // TODO: Check me.
+  }
+
+  const ctx = {
+    ...context,
     basePageName,
     currentLocale: locale,
     defaultLocale: config.defaultLocale,
@@ -35,4 +40,6 @@ export function createInternationalizationContextData<
         pick(translations, ['site', basePageName])
       )
   };
+
+  return ctx;
 }

@@ -21,3 +21,10 @@ export const translations = {
 
   article: {}
 };
+
+// English context do not require an explicit type because they are used to
+// derive the `TranslationContext` type. See the `index.ts` file in this
+// directory.
+export const context = {
+  dateFmt: 'MMMM D[,] YYYY'
+};

@@ -32,8 +32,8 @@ export interface Data {
 }
 
 export const query = graphql`
-  query Article($id: String) {
-    article: mdx(id: { eq: $id }) {
+  query Article($articleId: String) {
+    article: mdx(id: { eq: $articleId }) {
       frontmatter {
         title
       }

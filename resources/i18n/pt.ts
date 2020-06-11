@@ -1,4 +1,4 @@
-import type { Translations } from '.';
+import type { Translations, TranslationsContext } from '.';
 
 export const translations: Translations = {
   site: {
@@ -20,4 +20,8 @@ export const translations: Translations = {
   },
 
   article: {}
+};
+
+export const context: TranslationsContext = {
+  dateFmt: 'DD [de] MMMM [de] YYYY'
 };

@@ -2,7 +2,6 @@ import { parse, basename, resolve } from 'path';
 import type { GatsbyNode } from 'gatsby';
 import {
   locales,
-  allTranslations,
   isDefaultLocale,
   createLocalizedPath,
   isValidLocale,
@@ -41,7 +40,6 @@ export const gatsbyNode: GatsbyNode = {
 
     // For each translation available to the website, iterate, and [...*]
     locales.forEach((locale) => {
-      const translations = allTranslations[locale];
       const basePageName = trimSlashes(page.path).trim() || 'index';
 
       if (!defaultFound && isDefaultLocale(locale)) {
@@ -59,7 +57,6 @@ export const gatsbyNode: GatsbyNode = {
 
         context: createInternationalizationContextData<any>({
           basePageName,
-          translations,
           locale
         })
       });
@@ -157,16 +154,14 @@ export const gatsbyNode: GatsbyNode = {
 
     data.articles.nodes.forEach(({ id, fields }) => {
       const { locale, localizedArticleLink } = fields;
-      const translations = allTranslations[locale];
 
-      createPage<GatsbyPageContext<{ id: string }>>({
+      createPage<GatsbyPageContext<{ articleId: string }>>({
         component: resolve(process.cwd(), 'src/templates/article.tsx'),
         path: localizedArticleLink,
         context: {
-          id: id,
+          articleId: id,
           ...createInternationalizationContextData<'article'>({
             basePageName: 'article',
-            translations,
             locale
           })
         }
