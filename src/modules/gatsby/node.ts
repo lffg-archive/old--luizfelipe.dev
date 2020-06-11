@@ -1,4 +1,5 @@
-import { parse, basename, resolve } from 'path';
+import { join, parse, basename, resolve } from 'path';
+import { watch } from 'chokidar';
 import type { GatsbyNode } from 'gatsby';
 import {
   locales,
@@ -10,6 +11,12 @@ import {
 import type { GatsbyPageContext } from '../../types/gatsby';
 import { trimSlashes, ensureSlashes } from '../../utils/slashes';
 import { createInternationalizationContextData } from './helpers';
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+const watcher = watch(join(process.cwd(), 'resources/i18n/*'), {
+  ignored: 'index.??'
+});
 
 export const gatsbyNode: GatsbyNode = {
   /**
@@ -40,14 +47,11 @@ export const gatsbyNode: GatsbyNode = {
 
     // For each translation available to the website, iterate, and [...*]
     locales.forEach((locale) => {
-      const basePageName = trimSlashes(page.path).trim() || 'index';
-
       if (!defaultFound && isDefaultLocale(locale)) {
         defaultFound = true;
       }
 
-      // [...*] Create a page for the current iteration's translations.
-      createPage<GatsbyPageContext>({
+      const pageData = {
         ...page,
 
         path: createLocalizedPath({
@@ -56,10 +60,28 @@ export const gatsbyNode: GatsbyNode = {
         }),
 
         context: createInternationalizationContextData<any>({
-          basePageName,
+          basePageName: trimSlashes(page.path).trim() || 'index',
           locale
         })
-      });
+      };
+
+      const createCurrentPage = () => createPage<GatsbyPageContext>(pageData);
+
+      if (process.env.NODE_ENV === 'development') {
+        let last = Date.now();
+
+        watcher.on('change', (path) => {
+          if (basename(path, '.ts') !== locale || Date.now() - 2000 < last) {
+            return;
+          }
+
+          deletePage({ path: pageData.path, component: pageData.component });
+          createCurrentPage();
+          last = Date.now();
+        });
+      }
+
+      createCurrentPage();
     });
 
     // This will throw an error if no translation is set to default.
