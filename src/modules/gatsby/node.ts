@@ -89,7 +89,7 @@ export const gatsbyNode: GatsbyNode = {
         base: articleLink
       });
       const editArticleLink =
-        'https://github.com/lffg/luizfelipe.dev/edit/master/resources/articles/' +
+        'https://github.com/lffg/luizfelipe.dev/edit/main/resources/articles/' +
         `${articleName}/${base}`;
 
       [
