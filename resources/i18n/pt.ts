@@ -10,7 +10,7 @@ export const translations: Translations = {
     },
     footer: {
       openSource:
-        'O código fonte deste website é <a href="https://github.com/lffg/luizfelipe.dev rel="noopener noreferrer" target="_blank">open-source</a>.'
+        'O código fonte deste website é <a href="https://github.com/lffg/luizfelipe.dev" rel="noopener noreferrer" target="_blank">open-source</a>.'
     }
   },
 
