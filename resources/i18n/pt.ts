@@ -26,6 +26,10 @@ export const translations: Translations = {
     desc: 'Todo (pt)'
   },
 
+  contact: {
+    title: 'Contato'
+  },
+
   article: {}
 };
 

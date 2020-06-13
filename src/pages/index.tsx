@@ -1,19 +1,10 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import { ContactInfo } from '../components/contact-info';
 import { LocalizedLink } from '../components/localized-link';
 import { SEO } from '../components/seo';
 import { useTranslations } from '../context/translations';
 import type { PageProps } from '../types/gatsby';
-
-// prettier-ignore
-const contactInfo = [
-  ['Website',   'luizfelipe.dev',      'https://luizfelipe.dev'],
-  ['GitHub',    'lffg',                'https://github.com/lffg'],
-  ['Twitter',   '_lffg',               'https://twitter.com/_lffg'],
-  ['Telegram',  'luizffg',             'https://t.me/luizffg'],
-  ['E-Mail',    'lffgluiz@gmail.com'],
-  ['Discord',   'Luiz#2029']
-] as const;
 
 export default function Index({ data }: PageProps<Data>) {
   const { index } = useTranslations('index');
@@ -27,21 +18,7 @@ export default function Index({ data }: PageProps<Data>) {
       <p>
         <LocalizedLink to="/about">{index.aboutMe}</LocalizedLink>
       </p>
-      <ul>
-        {contactInfo.map(([name, profile, link]) => (
-          <li key={name}>
-            {link ? (
-              <a href={link}>
-                {name} ({profile})
-              </a>
-            ) : (
-              <>
-                {name} ({profile})
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+      <ContactInfo />
 
       <h3>{index.latestArticles}</h3>
       <ul>

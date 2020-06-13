@@ -22,8 +22,12 @@ export const translations = {
   },
 
   about: {
-    title: 'About me',
+    title: 'About',
     desc: 'Todo (en)'
+  },
+
+  contact: {
+    title: 'Contact'
   },
 
   article: {}
