@@ -125,7 +125,7 @@ export const gatsbyNode: GatsbyNode = {
           };
         }>;
       };
-    }>(`
+    }>(/* GraphQL */ `
       query AllArticles {
         articles: allMdx {
           nodes {
