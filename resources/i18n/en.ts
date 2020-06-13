@@ -3,7 +3,15 @@
 export const translations = {
   site: {
     description: "Luiz Felipe Gonçalves' (lffg) website",
-    home: 'Back to home'
+    nav: {
+      home: 'Home',
+      about: 'About',
+      contact: 'Contact'
+    },
+    footer: {
+      openSource:
+        'The source code of this website is <a href="https://github.com/lffg/luizfelipe.dev rel="noopener noreferrer" target="_blank">open-source</a>.'
+    }
   },
 
   index: {

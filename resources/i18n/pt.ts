@@ -3,7 +3,15 @@ import type { Translations, TranslationsContext } from '.';
 export const translations: Translations = {
   site: {
     description: 'Website de Luiz Felipe Gonçalves (lffg)',
-    home: 'Voltar ao início'
+    nav: {
+      home: 'Início',
+      about: 'Sobre',
+      contact: 'Contato'
+    },
+    footer: {
+      openSource:
+        'O código fonte deste website é <a href="https://github.com/lffg/luizfelipe.dev rel="noopener noreferrer" target="_blank">open-source</a>.'
+    }
   },
 
   index: {

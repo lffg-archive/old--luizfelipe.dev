@@ -1,40 +1,45 @@
 import React from 'react';
 import type { Translations } from '../../resources/i18n';
-import { LocaleChanger } from '../components/locale-changer';
+import { Container, InnerContainer } from '../components/layout/container';
+import { Footer } from '../components/layout/footer';
+import { GlobalStyle } from '../components/layout/global-style';
+import { Header } from '../components/layout/header';
 import { SEO } from '../components/seo';
 import { LocaleContextProvider } from '../context/locale';
+import { ThemeProvider } from '../context/theme';
 import { TranslationsContextProvider } from '../context/translations';
-import type { LayoutProps } from '../types/gatsby';
+import type { LayoutProps, GatsbyPageContext } from '../types/gatsby';
 import { parseJSONFn } from '../utils/json';
 
 export default function Layout({ children, pageContext }: LayoutProps) {
-  const {
-    basePageName,
-    serializedTranslations,
-    currentLocale,
-    defaultLocale
-  } = pageContext;
+  return (
+    <AppProviders {...pageContext}>
+      <SEO />
+      <GlobalStyle />
 
-  const translations = parseJSONFn<Translations>(serializedTranslations);
+      <Header />
+      <Container>
+        <InnerContainer>{children}</InnerContainer>
+        <Footer />
+      </Container>
+    </AppProviders>
+  );
+}
+
+const AppProviders: React.FC<GatsbyPageContext> = ({ children, ...ctx }) => {
+  const translations = parseJSONFn<Translations>(ctx.serializedTranslations);
 
   return (
     <LocaleContextProvider
-      currentLocale={currentLocale}
-      defaultLocale={defaultLocale}
+      currentLocale={ctx.currentLocale}
+      defaultLocale={ctx.defaultLocale}
     >
       <TranslationsContextProvider
-        basePageName={basePageName}
+        basePageName={ctx.basePageName}
         translations={translations}
       >
-        <SEO />
-
-        {children}
-
-        <footer>
-          <hr />
-          <LocaleChanger />
-        </footer>
+        <ThemeProvider>{children}</ThemeProvider>
       </TranslationsContextProvider>
     </LocaleContextProvider>
   );
-}
+};
