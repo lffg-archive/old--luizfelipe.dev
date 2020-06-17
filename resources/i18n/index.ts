@@ -62,10 +62,11 @@ interface CreateLocalizedPathOptions {
 
 export function createLocalizedPath(options: CreateLocalizedPathOptions) {
   const { locale, base } = options;
+  const fixedBase = base === 'index' ? '/' : base;
 
   return isDefaultLocale(locale)
     ? // The default locale does not get a path prefix.
-      '/' + trimSlashes(base)
+      '/' + trimSlashes(fixedBase)
     : // The other locales have a path prefix.
-      `/${locale}/${trimSlashes(base)}`;
+      `/${locale}/${trimSlashes(fixedBase)}`;
 }
