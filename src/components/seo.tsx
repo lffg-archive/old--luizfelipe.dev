@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocale } from '../context/locale';
 import { useTranslations } from '../context/translations';
 
 const QUERY = graphql`
@@ -16,16 +17,27 @@ const QUERY = graphql`
   }
 `;
 
+interface Query {
+  site: {
+    siteMetadata: {
+      social: {
+        twitter: string;
+      };
+      title: string;
+    };
+  };
+}
+
 interface Props {
   description: string;
-  lang: string;
   meta: any[];
   title: string;
   removeTitleTemplate: true;
 }
 
 export function SEO(props: Partial<Props>) {
-  const { siteMetadata } = useStaticQuery(QUERY).site;
+  const { siteMetadata } = useStaticQuery<Query>(QUERY).site;
+  const { currentLocale } = useLocale();
   const { site } = useTranslations();
 
   const title = props.removeTitleTemplate
@@ -36,7 +48,7 @@ export function SEO(props: Partial<Props>) {
 
   return (
     <Helmet
-      htmlAttributes={{ lang: props.lang || siteMetadata.defaultLang }}
+      htmlAttributes={{ lang: currentLocale }}
       title={title}
       meta={[
         { name: 'description', content: description },

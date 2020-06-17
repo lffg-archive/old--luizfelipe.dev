@@ -4,6 +4,7 @@ import { Container, InnerContainer } from '../components/layout/container';
 import { Footer } from '../components/layout/footer';
 import { GlobalStyle } from '../components/layout/global-style';
 import { Header } from '../components/layout/header';
+import { LocaleAlternations } from '../components/locale-alternations';
 import { SEO } from '../components/seo';
 import { LocaleContextProvider } from '../context/locale';
 import { ThemeProvider } from '../context/theme';
@@ -14,8 +15,13 @@ import { parseJSONFn } from '../utils/json';
 export default function Layout({ children, pageContext }: LayoutProps) {
   return (
     <AppProviders {...pageContext}>
-      <SEO />
       <GlobalStyle />
+
+      <SEO />
+      <LocaleAlternations
+        currentLocale={pageContext.currentLocale}
+        currentBasePageName={pageContext.basePageName}
+      />
 
       <Header />
       <Container>
