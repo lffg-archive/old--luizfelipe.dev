@@ -5120,10 +5120,10 @@ escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-lffg@^18.0.1:
-  version "18.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-18.0.1.tgz#dae68067bb2095a08f258b61bef035518bccdd94"
-  integrity sha512-/GjuP659yt4mahdOENSEzT6sTvnBAr77IM4C68pZeXwctghhevIt/XkHyy7u4BTVxO1q4h/XiacW7AuW8/51xw==
+eslint-config-lffg@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-lffg/-/eslint-config-lffg-19.0.0.tgz#d5ce040680d90423e9eb1157efcc78b94bc97927"
+  integrity sha512-CWCzFiCpPkj38i19Fnlc6G0yGqgcSzWpjyRWv/Dk9hBXbPj7clJryL4pbgqwT4Vp5HthYdEY9BYeFISpyCY4pg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.x"
     "@typescript-eslint/parser" "2.x"
