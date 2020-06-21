@@ -2,7 +2,9 @@ import type { PageProps as GatsbyPageProps } from 'gatsby';
 import type { ReactNode } from 'react';
 import type { Locale, TranslationsContext } from '../../resources/i18n';
 
-export type GatsbyPageContext<T extends {} = {}> = T &
+type Obj = Record<string, unknown>;
+
+export type GatsbyPageContext<T extends Obj = Obj> = T &
   TranslationsContext & {
     currentLocale: Locale;
     defaultLocale: Locale;
@@ -18,13 +20,13 @@ export type GatsbyPageContext<T extends {} = {}> = T &
   };
 
 export type LayoutProps = Omit<
-  GatsbyPageProps<{}, GatsbyPageContext>,
+  GatsbyPageProps<Obj, GatsbyPageContext>,
   'children'
 > & {
   children: ReactNode;
 };
 
-export type PageProps<Data = {}, Ctx = {}> = GatsbyPageProps<
+export type PageProps<Data = Obj, Ctx = Obj> = GatsbyPageProps<
   Data,
   GatsbyPageContext & Ctx
 >;
