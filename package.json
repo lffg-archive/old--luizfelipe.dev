@@ -11,7 +11,7 @@
     "format": "yarn format:raw '**/*.{json,vue,css,scss,less,graphql,gql,md,mdx,yml,yaml}' && yarn lint:fix",
     "lint": "yarn lint:raw .",
     "lint:fix": "yarn lint:raw --ignore-path .gitignore --fix .",
-    "lint:raw": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 --ignore-path .gitignore --ignore-pattern '!.*.*'",
+    "lint:raw": "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern '!.*.*'",
     "check:ts": "tsc --skipLibCheck",
     "check:all": "yarn lint && yarn check:ts"
   },
@@ -43,8 +43,10 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^5.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-lffg": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "eslint": "^7.3.0",
+    "eslint-config-lffg": "^20.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5"
