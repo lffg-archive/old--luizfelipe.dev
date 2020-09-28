@@ -6,7 +6,7 @@ const contactInfo = [
   ['GitHub',    'lffg',                'https://github.com/lffg'],
   ['Twitter',   '_lffg',               'https://twitter.com/_lffg'],
   ['Telegram',  'luizffg',             'https://t.me/luizffg'],
-  ['E-Mail',    'lffgluiz@gmail.com'],
+  ['E-Mail',    'lffgluiz (at) gmail (dot) com'],
   ['Discord',   'Luiz#2029']
 ] as const;
 
